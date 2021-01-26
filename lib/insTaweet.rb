@@ -8,13 +8,12 @@ class InsTaweet
   attr_reader :client
   attr_reader :message
 
-  def initialize(*url)
+  def initialize(*_url)
     @url = nil
     @tweets = []
     @feed = {}
     @client = nil
     @message = []
-
   end
 
   def access
@@ -29,7 +28,7 @@ class InsTaweet
   def run
     tweet
   end
-  
+
   def tweet
     @url = 'https://rss.app/feeds/vULnRqsuMJvc8tZZ.xml'
 
@@ -47,12 +46,11 @@ class InsTaweet
 
   def post_tweets
     @message = InsTaweet.new.run
-    access 
+    access
     @message.each do |item|
       @client.update(item)
       puts item
-      sleep 2 #Twelve hours interval
+      sleep 2 # Twelve hours interval
     end
   end
-
 end
