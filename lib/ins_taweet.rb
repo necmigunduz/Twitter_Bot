@@ -56,3 +56,4 @@ class InsTaweet
 end
 
 # rubocop:enable Layout/LineLength
+
