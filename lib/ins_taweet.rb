@@ -1,3 +1,5 @@
+# rubocop:disable Layout/LineLength
+
 require 'open-uri'
 require 'rss'
 require 'twitter'
@@ -48,7 +50,9 @@ class InsTaweet
     @message.each do |item|
       @client.update(item)
       puts item
-      sleep 43200 # Twelve hours interval
+      sleep 43_200 # Twelve hours interval
     end
   end
 end
+
+# rubocop:enable Layout/LineLength
