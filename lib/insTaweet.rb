@@ -6,12 +6,14 @@ require 'twitter'
 
 class InsTaweet
   attr_reader :client
+  attr_reader :message
 
   def initialize(*url)
     @url = nil
     @tweets = []
     @feed = {}
     @client = nil
+    @message = []
 
   end
 
@@ -36,7 +38,7 @@ class InsTaweet
 
       @feed.items.each do |item|
         date = item.pubDate.strftime('%m/%d/%Y')
-        tweet = 'You can see my graphic designs by clicking on the link below:' "\nHashtags: #{item.title} \n" + "\nDate: #{date} " + "\nLink: #{item.link}"
+        tweet = 'You can see my graphic designs by clicking on the link below:' "\nHashtags: #{item.title}" + "\nDate: #{date} " + "\nLink: #{item.link}"
         @tweets << tweet
       end
     end
@@ -44,12 +46,12 @@ class InsTaweet
   end
 
   def post_tweets
-    message = InsTaweet.new.run
+    @message = InsTaweet.new.run
     access 
-    message.each do |item|
+    @message.each do |item|
       @client.update(item)
       puts item
-      sleep 43200 #Twelve hours interval
+      sleep 2 #Twelve hours interval
     end
   end
 
