@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 require 'twitter'
 require_relative 'spec_helper.rb'
-require_relative '../lib/insTaweet.rb'
+require_relative '../lib/ins_taweet.rb'
 
 # TwitterBot -------------------------------------------------------------------------- #
 RSpec.describe InsTaweet do

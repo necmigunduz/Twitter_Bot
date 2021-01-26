@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 require 'dotenv'
 require 'twitter'
-require_relative '../lib/insTaweet.rb'
+require_relative '../lib/ins_taweet.rb'
 
 Dotenv.load('./.env')
 

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'open-uri'
 require 'rss'
 require 'twitter'
@@ -50,7 +48,7 @@ class InsTaweet
     @message.each do |item|
       @client.update(item)
       puts item
-      sleep 2 # Twelve hours interval
+      sleep 43200 # Twelve hours interval
     end
   end
 end
