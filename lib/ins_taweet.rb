@@ -17,8 +17,8 @@ class InsTaweet
   def access
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key = ENV['consumer_key']
-      config.consumer_secret     = ENV['consumer_secret']
-      config.access_token        = ENV['access_token']
+      config.consumer_secret = ENV['consumer_secret']
+      config.access_token = ENV['access_token']
       config.access_token_secret = ENV['access_token_secret']
     end
   end
@@ -30,7 +30,7 @@ class InsTaweet
   def tweet
     @url = 'https://rss.app/feeds/vULnRqsuMJvc8tZZ.xml'
 
-    open(@url) do |rss|
+    Kernel.open(@url) do |rss|
       @feed = RSS::Parser.parse(rss)
 
       @feed.items.each do |item|
