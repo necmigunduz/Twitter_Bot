@@ -1,8 +1,8 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
 gem 'dotenv'
-gem 'twitter'
 gem 'httparty'
 gem 'nokogiri'
-
-
+gem 'open-uri'
+gem 'rss'
+gem 'twitter'
