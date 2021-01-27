@@ -7,7 +7,7 @@ require 'twitter'
 class InsTaweet
   attr_reader :client, :message, :tweets
   attr_writer :tweets
-  
+
   def initialize(*_url)
     @url = nil
     @tweets = []
@@ -29,6 +29,7 @@ class InsTaweet
   end
 
   private
+
   def access
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key = ENV['consumer_key']
@@ -37,7 +38,6 @@ class InsTaweet
       config.access_token_secret = ENV['access_token_secret']
     end
   end
-  
 
   def tweet
     @url = 'https://rss.app/feeds/vULnRqsuMJvc8tZZ.xml'

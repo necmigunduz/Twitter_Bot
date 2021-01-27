@@ -8,10 +8,9 @@ Dotenv.load('./.env')
 RSpec.describe InsTaweet do
   # before :each do
   #   @user = InsTaweet.new(message:["a","b","necmi"])
-  # end 
+  # end
 
   let(:my_bot) { InsTaweet.new }
-
 
   describe '#initialize' do
   end
@@ -29,10 +28,8 @@ RSpec.describe InsTaweet do
   end
 
   describe '#post_tweets' do
-
-    it 'tweets the items of the array named as tweets' do 
+    it 'tweets the items of the array named as tweets' do
       expect(my_bot.post_tweets).to eql(1)
     end
   end
-
 end
