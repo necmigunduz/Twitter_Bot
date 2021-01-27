@@ -6,9 +6,6 @@ require_relative '../lib/ins_taweet'
 Dotenv.load('./.env')
 
 RSpec.describe InsTaweet do
-  # before :each do
-  #   @user = InsTaweet.new(message:["a","b","necmi"])
-  # end
 
   let(:my_bot) { InsTaweet.new }
 
