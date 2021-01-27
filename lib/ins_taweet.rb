@@ -28,8 +28,6 @@ class InsTaweet
     tweet
   end
 
-  private
-
   def access
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key = ENV['consumer_key']

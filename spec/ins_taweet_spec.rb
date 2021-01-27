@@ -6,7 +6,6 @@ require_relative '../lib/ins_taweet'
 Dotenv.load('./.env')
 
 RSpec.describe InsTaweet do
-
   let(:my_bot) { InsTaweet.new }
 
   describe '#initialize' do
