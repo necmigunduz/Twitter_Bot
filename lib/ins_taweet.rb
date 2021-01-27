@@ -5,9 +5,9 @@ require 'rss'
 require 'twitter'
 
 class InsTaweet
-  attr_reader :client
-  attr_reader :message
-
+  attr_reader :client, :message, :tweets
+  attr_writer :tweets
+  
   def initialize(*_url)
     @url = nil
     @tweets = []
@@ -16,6 +16,19 @@ class InsTaweet
     @message = []
   end
 
+  def post_tweets
+    @message = InsTaweet.new.run
+    access
+    @message.each { |item| @client.update(item) }
+    @message.each { |item| puts item }
+    sleep 1 # Twelve hours interval
+  end
+
+  def run
+    tweet
+  end
+
+  private
   def access
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key = ENV['consumer_key']
@@ -24,15 +37,12 @@ class InsTaweet
       config.access_token_secret = ENV['access_token_secret']
     end
   end
-
-  def run
-    tweet
-  end
+  
 
   def tweet
     @url = 'https://rss.app/feeds/vULnRqsuMJvc8tZZ.xml'
 
-    Kernel.open(@url) do |rss|
+    URI.open(@url) do |rss|
       @feed = RSS::Parser.parse(rss)
 
       @feed.items.each do |item|
@@ -42,16 +52,6 @@ class InsTaweet
       end
     end
     @tweets
-  end
-
-  def post_tweets
-    @message = InsTaweet.new.run
-    access
-    @message.each do |item|
-      @client.update(item)
-      puts item
-      sleep 43_200 # Twelve hours interval
-    end
   end
 end
 

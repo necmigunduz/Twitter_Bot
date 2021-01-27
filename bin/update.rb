@@ -1,6 +1,6 @@
 require 'dotenv'
 require 'twitter'
-require_relative '../lib/ins_taweet.rb'
+require_relative '../lib/ins_taweet'
 
 Dotenv.load('./.env')
 

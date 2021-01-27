@@ -2,17 +2,22 @@
 
 # Twitter_Bot
 
-This is a twitter bot made with Ruby for the Microverse Capstone project of the Ruby module
+This is a twitter bot made with Ruby for the Microverse Capstone project of the Ruby module. This bot parses information from a rss page which is a converted version of a personal Instagram page and tweets them every twelve hours. 
+
+![screenshot](assets/Screenshot_2021-01-27_10-58-02.png)
 
 ## Instructions
 
-This bot has two main functionalities:`POST_TWEETS`
+This bot has one functionality:`POST_TWEETS`
 
 * `POST_TWEETS`
 - The bot gets some parts from a RSS (Conversion of a personal instagram page into a RSS page), and tweets them once every twelve hours
+
 ## Built With
 
 - Ruby
+
+For running the bot locally, you need to switch to ruby -v 2.7.2 if you use another version of ruby such as ruby -v 3.0.0 .
 
 ## Prerequisties
 
@@ -29,11 +34,27 @@ To get a local copy up and running follow these simple example steps in your ter
 - `https://github.com/necmigunduz/twitter_bot`
 - `cd twitter_bot`
 - `ruby bin/update.rb`
+
+Following these steps, create an .env file in the root folder and place keys and tokens for Twitter as follows: 
+
+consumer_key = 'Enter your consumer_key here'
+consumer_secret     = 'Enter your consumer_secret here'
+access_token        = ''Enter your access_token here''
+access_token_secret = ''Enter your access_token_secret here''
+
+For tweeting your posts in your personal Instagram account, your need to replace the url in the tweet method with your rss page url in the ins_taweet.rb in lib. To convert your Instagram page into a rss page, you can use rss.app service or another rss conversion service. 
+
 ## Testing
 
 To test you have to install the RSpec gem and run this command from the root folder:
 
 - `rspec`
+
+For running the test, enter the name of the test in test_name area, and run the code below:
+
+-`rspec spec/test_name`
+
+While testing the methods of InsTaweet class, you need to delete private above access method.
 
 ## Author
 
